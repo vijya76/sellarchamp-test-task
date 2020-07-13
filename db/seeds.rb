@@ -18,3 +18,11 @@ product_type = ProductType.create!(
 product_type_second = ProductType.create!(
   name: 'Glass'
 )
+
+Product.create!(
+  title: 'Test Product',
+  description: 'This is a test description',
+  sku: 'ABC',
+  product_type_id: product_type.id,
+  user_id: test_user.id
+)
