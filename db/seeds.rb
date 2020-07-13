@@ -26,3 +26,28 @@ Product.create!(
   product_type_id: product_type.id,
   user_id: test_user.id
 )
+
+Option.create!(
+  option_type: 'COLOR',
+  option_value: 'Red'
+)
+
+Option.create!(
+  option_type: 'COLOR',
+  option_value: 'Green'
+)
+
+Option.create!(
+  option_type: 'PATTERN',
+  option_value: 'Circle'
+)
+
+Option.create!(
+  option_type: 'SIZE',
+  option_value: 'M'
+)
+
+Option.create!(
+  option_type: 'SIZE',
+  option_value: 'L'
+)

@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_13_182820) do
+ActiveRecord::Schema.define(version: 2020_07_13_183721) do
+
+  create_table "options", force: :cascade do |t|
+    t.string "option_value", null: false
+    t.string "option_type", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "product_types", force: :cascade do |t|
     t.string "name", null: false
