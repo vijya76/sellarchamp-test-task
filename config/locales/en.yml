@@ -36,3 +36,34 @@ en:
       blank: can't be blank
       taken: has already been taken
       title: Title can't be blank
+    description: This is a test
+  product:
+    all: All Products
+    create:
+      success: Successfully created product!
+      sku_validation_error: sku should be unique for product and its variants
+    details: Show More Details
+    title: Product title
+    description: Product description
+    sku: Product sku-UGG-BB-PUR-06
+    create_product: Create Product
+    headers:
+      title: Title
+      description: Description
+      type: Product type
+      action: Actions
+  variant:
+    title: Variants
+    add: Add variant
+    remove: Do you really want to do this?
+    headers:
+      sku: SKU
+      price: Price
+      quantity: Quantity
+      type: Product Type
+      option_type: Option Type
+      option_value: Option Value
+  errors:
+    messages:
+      not_found: Not Found
+      not_saved: Could not save product
