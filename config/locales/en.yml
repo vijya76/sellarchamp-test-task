@@ -30,4 +30,9 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  welcome: Welcome to Seller Champ
+  test:
+    errors:
+      blank: can't be blank
+      taken: has already been taken
+      title: Title can't be blank
