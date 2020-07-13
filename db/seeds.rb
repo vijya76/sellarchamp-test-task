@@ -51,3 +51,18 @@ Option.create!(
   option_type: 'SIZE',
   option_value: 'L'
 )
+
+ProductOption.create!(
+  supported_option_type: 'COLOR',
+  product_type_id: product_type.id
+)
+
+ProductOption.create!(
+  supported_option_type: 'SIZE',
+  product_type_id: product_type.id
+)
+
+ProductOption.create!(
+  supported_option_type: 'PATTERN',
+  product_type_id: product_type_second.id
+)

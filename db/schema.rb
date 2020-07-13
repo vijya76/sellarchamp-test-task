@@ -10,13 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_13_184501) do
+ActiveRecord::Schema.define(version: 2020_07_13_185442) do
 
   create_table "options", force: :cascade do |t|
     t.string "option_value", null: false
     t.string "option_type", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "product_options", force: :cascade do |t|
+    t.string "supported_option_type", null: false
+    t.integer "product_type_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["product_type_id"], name: "index_product_options_on_product_type_id"
   end
 
   create_table "product_types", force: :cascade do |t|
@@ -71,6 +79,7 @@ ActiveRecord::Schema.define(version: 2020_07_13_184501) do
     t.index ["sku"], name: "index_variants_on_sku", unique: true
   end
 
+  add_foreign_key "product_options", "product_types"
   add_foreign_key "products", "product_types"
   add_foreign_key "products", "users"
   add_foreign_key "variant_options", "options"
