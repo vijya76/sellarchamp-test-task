@@ -27,6 +27,10 @@ gem 'jbuilder', '~> 2.7'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
+# Ruby internationalization and localization (i18n) solution.
+gem 'i18n'
+# flexible authentication solution for Rails based on Warden.
+gem 'devise'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
