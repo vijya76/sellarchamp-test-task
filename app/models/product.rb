@@ -9,7 +9,7 @@ class Product < ApplicationRecord
   validates :title, presence: true
 
   # validate unique sku for products and variants
-  validate :uniqueness_of_sku_for_product_and_variants, on: :create
+  validate :uniqueness_of_sku_for_product_and_variants, on: :create, unless: -> { self.user.nil? }
 
   accepts_nested_attributes_for :variants, reject_if: :all_blank, allow_destroy: true
 

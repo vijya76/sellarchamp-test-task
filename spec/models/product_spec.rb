@@ -30,9 +30,9 @@ RSpec.describe Product, type: :model do
   end
 
   it 'is invalid without sku' do
-    product = FactoryBot.build(:product)
+    product = FactoryBot.create(:product)
     product.sku = nil
-    expect(product.valid?).to eq(false)
+    expect(product.save).to eq(false)
     expect(product.errors[:sku]).to include(I18n.t('test.errors.blank'))
   end
 

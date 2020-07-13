@@ -31,7 +31,7 @@ RSpec.describe ProductsController, type: :controller do
     end
 
     it 'should not create product and variants for invalid params' do
-      expect { post :create, params: { product: { title: 'test' } } }.to change { Product.count }.by(0)
+      expect { post :create, params: { product: { sku: 'AXC' } } }.to change { Product.count }.by(0)
 
       expect(flash[:error]).to_not be_nil
     end
