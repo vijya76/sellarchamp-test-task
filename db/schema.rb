@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_13_183721) do
+ActiveRecord::Schema.define(version: 2020_07_13_184501) do
 
   create_table "options", force: :cascade do |t|
     t.string "option_value", null: false
@@ -51,6 +51,15 @@ ActiveRecord::Schema.define(version: 2020_07_13_183721) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "variant_options", force: :cascade do |t|
+    t.integer "variant_id"
+    t.integer "option_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["option_id"], name: "index_variant_options_on_option_id"
+    t.index ["variant_id"], name: "index_variant_options_on_variant_id"
+  end
+
   create_table "variants", force: :cascade do |t|
     t.string "sku", null: false
     t.decimal "price"
@@ -64,5 +73,7 @@ ActiveRecord::Schema.define(version: 2020_07_13_183721) do
 
   add_foreign_key "products", "product_types"
   add_foreign_key "products", "users"
+  add_foreign_key "variant_options", "options"
+  add_foreign_key "variant_options", "variants"
   add_foreign_key "variants", "products"
 end
