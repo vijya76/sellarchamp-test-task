@@ -1,0 +1,21 @@
+<h2><%=t('welcome')%></h2>
+<%= link_to t('product.create_product'), new_product_path %>
+
+
+<table class="table table-hover">
+  <tr>
+    <th><%=t('product.headers.title')%></th>
+    <th><%=t('product.headers.description')%></th>
+    <th><%=t('product.headers.type')%></th>
+    <th><%=t('product.headers.action')%></th>
+  </tr>
+
+  <% @products.each do |product| %>
+    <tr>
+      <td><%= product.title %></td>
+      <td><%= product.description %></td>
+      <td><%= product.product_type.name %></td>
+      <td><%= link_to t('product.details'), product_path(product) %></td>
+    </tr>
+  <% end %>
+</table>

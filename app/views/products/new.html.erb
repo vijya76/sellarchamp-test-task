@@ -1,0 +1,17 @@
+<h2><%=t('product.create_product')%></h2>
+<%= simple_form_for @product do |f| %>
+  <%= f.label :product_type_id %>
+  <%= f.collection_select :product_type_id, ProductType.all, :id, :name %>
+  <%= f.input :title, placeholder: t('product.title') %>
+  <%= f.input :sku, placeholder: t('product.sku') %>
+  <%= f.input :description, placeholder: t('product.description') %>
+    <div class="tab-pane active" id="variants">
+      <%= f.simple_fields_for :variants do |variant| %>
+        <%= render 'variant_fields', f: variant %>
+      <% end %>
+      <div class="links">
+        <%= link_to_add_association t('variant.add'), f, :variants %>
+      </div>
+    </div>
+  <%= f.button :submit %>
+<% end %>

@@ -1,0 +1,47 @@
+<%= link_to t('product.all'), products_path %>
+<h3><%= @product.title %></h3>
+
+<div class="well well-compact">
+  <p>
+    <strong><%=t('variant.headers.sku')%>:</strong>
+    <%= @product.sku %>
+  </p>
+
+  <p>
+    <strong><%=t('variant.headers.description')%>:</strong>
+    <%= @product.description %>
+  </p>
+
+  <p>
+    <strong><%=t('variant.headers.type')%>:</strong>
+    <%= @product.product_type.name %>
+  </p>
+
+  <% if @product.variants.present? %>
+    <hr>
+
+    <h3><%=t('variant.title')%></h3>
+
+    <table class="table table-hover">
+      <tr>
+        <th><%=t('variant.headers.sku')%></th>
+        <th><%= t('variant.headers.price')%></th>
+        <th><%= t('variant.headers.quantity')%></th>
+        <th><%= t('variant.headers.option_type')%></th>
+        <th><%= t('variant.headers.option_value')%></th>
+      </tr>
+
+      <% @product.variants.each do |variant| %>
+        <% variant.options.each do |option| %>
+          <tr>
+            <td><%= variant.sku %></td>
+            <td><%= variant.price %></td>
+            <td><%= variant.quantity %></td>
+            <td><%= option.option_type %></td>
+            <td><%= option.option_value %></td>
+          </tr>
+        <% end %>
+      <% end %>
+    </table>
+  <%end%>
+</div>
