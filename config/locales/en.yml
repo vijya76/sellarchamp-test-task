@@ -56,6 +56,10 @@ en:
     title: Variants
     add: Add variant
     remove: Do you really want to do this?
+    create:
+      duplicate_option: options should be unique for a variant
+    option:
+      not_similar: option type should be same for each variant
     headers:
       sku: SKU
       price: Price
