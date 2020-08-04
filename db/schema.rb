@@ -10,22 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_13_185442) do
-
-  create_table "options", force: :cascade do |t|
-    t.string "option_value", null: false
-    t.string "option_type", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "product_options", force: :cascade do |t|
-    t.string "supported_option_type", null: false
-    t.integer "product_type_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["product_type_id"], name: "index_product_options_on_product_type_id"
-  end
+ActiveRecord::Schema.define(version: 2020_07_29_160344) do
 
   create_table "product_types", force: :cascade do |t|
     t.string "name", null: false
@@ -61,10 +46,10 @@ ActiveRecord::Schema.define(version: 2020_07_13_185442) do
 
   create_table "variant_options", force: :cascade do |t|
     t.integer "variant_id"
-    t.integer "option_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["option_id"], name: "index_variant_options_on_option_id"
+    t.string "option_type"
+    t.string "option_value"
     t.index ["variant_id"], name: "index_variant_options_on_variant_id"
   end
 
@@ -79,10 +64,8 @@ ActiveRecord::Schema.define(version: 2020_07_13_185442) do
     t.index ["sku"], name: "index_variants_on_sku", unique: true
   end
 
-  add_foreign_key "product_options", "product_types"
   add_foreign_key "products", "product_types"
   add_foreign_key "products", "users"
-  add_foreign_key "variant_options", "options"
   add_foreign_key "variant_options", "variants"
   add_foreign_key "variants", "products"
 end
