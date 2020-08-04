@@ -27,20 +27,26 @@
         <th><%=t('variant.headers.sku')%></th>
         <th><%= t('variant.headers.price')%></th>
         <th><%= t('variant.headers.quantity')%></th>
-        <th><%= t('variant.headers.option_type')%></th>
-        <th><%= t('variant.headers.option_value')%></th>
+        <th><%= t('variant.headers.options')%></th>
       </tr>
 
       <% @product.variants.each do |variant| %>
-        <% variant.options.each do |option| %>
-          <tr>
-            <td><%= variant.sku %></td>
-            <td><%= variant.price %></td>
-            <td><%= variant.quantity %></td>
-            <td><%= option.option_type %></td>
-            <td><%= option.option_value %></td>
-          </tr>
+        <tr>
+        <td><%= variant.sku %></td>
+        <td><%= variant.price %></td>
+        <td><%= variant.quantity %></td>
+        <% if variant.variant_options.present? %>
+          <td>
+            <% variant.variant_options.each do |option| %>
+              <strong><%=t('variant.headers.option_type')%>:</strong> <%= option.option_type %>
+              <strong><%=t('variant.headers.option_value')%>:</strong> <%= option.option_value %>
+              <br>
+            <% end %>
+          </td>
+        <% else %>
+          <td>N/A</td>
         <% end %>
+        </tr>
       <% end %>
     </table>
   <%end%>

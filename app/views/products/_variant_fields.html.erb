@@ -1,8 +1,8 @@
 <div class="nested-fields well well-compact">
   <div class="form-inline">
-    <%= f.input :sku, :label => false, :placeholder => 'sku', class: 'form-control' %>
-    $ <%= f.input :price, :label => false, :placeholder => '0.0', class: 'form-control' %>
-    <%= f.input :quantity, :label => false, :placeholder => '10', class: 'form-control' %>
+    <%=t('variant.headers.sku')%> <%= f.input :sku, :label => false, :placeholder => 'sku', class: 'form-control' %>
+    <%=t('variant.headers.price')%> $ <%= f.input :price, :label => false, :placeholder => '0.0', class: 'form-control' %>
+    <%=t('variant.headers.quantity')%> <%= f.input :quantity, :label => false, :placeholder => '10', class: 'form-control' %>
     <%= link_to_remove_association f, data: {:confirm => t('variant.remove')}, class: 'btn btn-default btn-xs' do %>
       <div class="glyphicon glyphicon-remove"> X</div>
     <% end %>
