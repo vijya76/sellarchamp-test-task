@@ -1,7 +1,9 @@
 # Sellar Champ
 ## Dependencies
-* Ruby version : 2.6.1
+* Ruby version : 2.5.0
 * Rails Version : 6.0.2
+* Yarn Version : 1.21.1
+* Node Version : 11.13.0
 ## Configuration
 ```gem install bundler && bundle install```
 ```yarn install```
