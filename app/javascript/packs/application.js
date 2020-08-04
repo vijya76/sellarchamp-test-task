@@ -9,7 +9,6 @@ require("@rails/activestorage").start()
 require("channels")
 require("jquery")
 require("cocoon")
-require("packs/product")
 
 import "bootstrap"
 import "cocoon"

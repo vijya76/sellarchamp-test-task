@@ -9,7 +9,6 @@ RSpec.describe ProductType, type: :model do
 
   describe 'associations' do
     it { is_expected.to have_many(:products) }
-    it { is_expected.to have_many(:product_options) }
   end
 
   it 'has a valid factory' do

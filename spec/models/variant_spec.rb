@@ -12,7 +12,6 @@ RSpec.describe Variant, type: :model do
   describe 'associations' do
     it { is_expected.to belong_to(:product) }
     it { is_expected.to have_many(:variant_options) }
-    it { is_expected.to have_many(:options) }
   end
 
   it 'has a valid factory' do
